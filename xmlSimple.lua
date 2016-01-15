@@ -136,12 +136,12 @@ function newNode(name)
     function node:numChildren() return #self.___children end
     function node:addChild(child)
         if self[child:name()] ~= nil then
-            if type(self[child:name()].name) == "function" then
+            if type(self[child:name()]) == "table" then
                 local tempTable = {}
                 table.insert(tempTable, self[child:name()])
                 self[child:name()] = tempTable
+            	table.insert(self[child:name()], child)
             end
-            table.insert(self[child:name()], child)
         else
             self[child:name()] = child
         end
