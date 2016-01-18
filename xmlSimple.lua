@@ -47,6 +47,8 @@ function newParser()
         value = string.gsub(value, "&gt;", ">");
         value = string.gsub(value, "&lt;", "<");
         value = string.gsub(value, "&amp;", "&");
+        value = string.gsub(value, "%s*<!%[%CDATA%[%s*", "")
+        value = string.gsub(value, "%s*%]%]%>%s*", "")
         return value;
     end
 
